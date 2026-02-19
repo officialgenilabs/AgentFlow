@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AgentFlow | By Gen I Labs</title>
+<title>AgentFlow | Private AI Infrastructure</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -29,16 +29,17 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated Grid Background */
+/* Background Grid */
 
 .background-grid {
     position: fixed;
     inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     z-index: -1;
-    animation: moveGrid 20s linear infinite;
+    animation: moveGrid 25s linear infinite;
 }
 
 @keyframes moveGrid {
@@ -75,22 +76,34 @@ body {
     color: var(--accent);
 }
 
-/* HERO */
+/* SECTIONS */
 
 section {
     padding: 140px 8%;
 }
 
+h1 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    max-width: 900px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* HERO */
+
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-    max-width: 900px;
 }
 
 .hero span {
@@ -99,9 +112,8 @@ section {
 
 .hero p {
     margin: 30px 0;
-    max-width: 650px;
+    max-width: 700px;
     font-size: 1.2rem;
-    color: var(--muted);
 }
 
 button {
@@ -120,25 +132,7 @@ button:hover {
     box-shadow: 0 0 35px rgba(16,185,129,0.7);
 }
 
-/* METRICS */
-
-.metrics {
-    display: flex;
-    gap: 60px;
-    margin-top: 60px;
-}
-
-.metric h3 {
-    font-size: 2rem;
-    color: var(--accent);
-}
-
-/* FEATURES */
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-}
+/* CARDS */
 
 .grid {
     display: grid;
@@ -151,22 +145,13 @@ h2 {
     padding: 50px 40px;
     border-radius: 16px;
     transition: all 0.4s ease;
-    transform-style: preserve-3d;
     border: 1px solid rgba(255,255,255,0.05);
 }
 
 .card:hover {
-    transform: rotateY(6deg) rotateX(6deg) translateY(-15px);
+    transform: translateY(-12px);
     border: 1px solid rgba(16,185,129,0.4);
     box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-}
-
-.card h3 {
-    margin-bottom: 20px;
-}
-
-.card p {
-    color: var(--muted);
 }
 
 /* CTA */
@@ -179,11 +164,11 @@ h2 {
     padding: 40px;
     text-align: center;
     color: var(--muted);
+    font-size: 0.8rem;
 }
 
 @media(max-width:768px){
-    .hero h1 { font-size: 2.5rem; }
-    .metrics { flex-direction: column; gap: 30px; }
+    h1 { font-size: 2.4rem; }
 }
 </style>
 </head>
@@ -195,73 +180,91 @@ h2 {
 <div class="nav">
     <div class="logo">AGENTFLOW</div>
     <div>
-        <a href="#features">Features</a>
-        <a href="#book">Book</a>
+        <a href="#build">What We Build</a>
+        <a href="#process">Process</a>
+        <a href="#book">Apply</a>
     </div>
 </div>
 
 <section class="hero">
     <div>
         <h1>
-            AI Infrastructure For <span>Elite Real Estate Operators</span>
+            Private <span>AI Infrastructure Buildout</span> For Real Estate Agents Scaling Toward $1M+
         </h1>
         <p>
-            AgentFlow by Gen I Labs automates listings, systemizes follow-up, and transforms agents into scalable operators.
+            AgentFlow by Gen I Labs is a done-for-you AI systems implementation.
+            We install automated listing generation, intelligent lead qualification,
+            and follow-up infrastructure directly into your workflow —
+            then train you to operate it like a CEO.
         </p>
-        <button onclick="scrollToSection('book')">Book Strategy Call</button>
-
-        <div class="metrics">
-            <div class="metric">
-                <h3 id="counter1">0</h3>
-                <p>Automated Workflows</p>
-            </div>
-            <div class="metric">
-                <h3 id="counter2">0</h3>
-                <p>Hours Saved Monthly</p>
-            </div>
-            <div class="metric">
-                <h3 id="counter3">0</h3>
-                <p>Listings Generated</p>
-            </div>
-        </div>
+        <button onclick="scrollToSection('book')">Apply For Private Implementation</button>
     </div>
 </section>
 
-<section id="features">
-    <h2>Core Infrastructure</h2>
+<section id="build">
+    <h2>What We Install</h2>
 
     <div class="grid">
 
         <div class="card">
-            <h3>AI Listings Generator</h3>
-            <p>MLS-ready, high-converting listing descriptions generated in seconds.</p>
+            <h3>AI Listings System</h3>
+            <p>Custom-built listing generator optimized for MLS, SEO, and buyer psychology.</p>
         </div>
 
         <div class="card">
-            <h3>Intelligent Lead Qualification</h3>
-            <p>Prioritize serious buyers and sellers automatically.</p>
+            <h3>Lead Qualification Engine</h3>
+            <p>Automated filtering and prioritization of serious buyers and sellers.</p>
         </div>
 
         <div class="card">
-            <h3>Automated Multi-Channel Follow-Up</h3>
-            <p>Email, SMS, and task automation built for scale.</p>
+            <h3>Follow-Up Automation</h3>
+            <p>Email, SMS, and workflow automations installed directly into your stack.</p>
         </div>
 
         <div class="card">
-            <h3>Pipeline Visibility Dashboard</h3>
-            <p>Real-time forecasting and deal tracking for $1M+ agents.</p>
+            <h3>Operator Dashboard</h3>
+            <p>Centralized visibility across pipeline, deal flow, and execution metrics.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="process">
+    <h2>How It Works</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>1. Strategy Call</h3>
+            <p>We assess your current workflow and identify scale bottlenecks.</p>
+        </div>
+
+        <div class="card">
+            <h3>2. Private Buildout</h3>
+            <p>We implement your custom AI infrastructure within your existing systems.</p>
+        </div>
+
+        <div class="card">
+            <h3>3. Training Session</h3>
+            <p>30-minute execution walkthrough showing you exactly how to operate it.</p>
+        </div>
+
+        <div class="card">
+            <h3>4. Ongoing Optimization</h3>
+            <p>Optional monthly retainer for continued system refinement and scaling.</p>
         </div>
 
     </div>
 </section>
 
 <section class="cta" id="book">
-    <h2>Book Your Strategy Call</h2>
-    <p style="margin-bottom:30px; color: var(--muted);">
-        Limited onboarding for serious operators.
+    <h2>Apply For Private Implementation</h2>
+    <p style="margin-bottom:30px;">
+        We work with a limited number of serious operators per quarter.
     </p>
-    <button onclick="window.location.href='https://calendly.com/YOUR-LINK'">
-        Schedule Call
+
+    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR-LINK'}); return false;">
+        Book 30-Minute Strategy Call
     </button>
 </section>
 
@@ -269,28 +272,12 @@ h2 {
     © 2026 AgentFlow by Gen I Labs
 </div>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <script>
 function scrollToSection(id){
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
-
-/* Counter Animation */
-function animateCounter(id, target) {
-    let count = 0;
-    const increment = target / 100;
-    const interval = setInterval(() => {
-        count += increment;
-        if (count >= target) {
-            count = target;
-            clearInterval(interval);
-        }
-        document.getElementById(id).innerText = Math.floor(count);
-    }, 20);
-}
-
-animateCounter("counter1", 128);
-animateCounter("counter2", 47);
-animateCounter("counter3", 312);
 </script>
 
 </body>
