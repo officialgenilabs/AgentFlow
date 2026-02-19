@@ -10,11 +10,10 @@
 <style>
 :root {
     --black: #000000;
-    --charcoal: #0c0c0c;
     --card: #121212;
     --text: #ffffff;
-    --muted: #8b8b8b;
-    --accent: #10B981; /* Emerald */
+    --muted: #8a8a8a;
+    --accent: #10B981;
 }
 
 * {
@@ -25,12 +24,26 @@
 }
 
 body {
-    background:
-    radial-gradient(circle at 20% 20%, rgba(16,185,129,0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(16,185,129,0.05), transparent 40%),
-    var(--black);
+    background: var(--black);
     color: var(--text);
     overflow-x: hidden;
+}
+
+/* Animated Grid Background */
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+    from { background-position: 0 0; }
+    to { background-position: 60px 60px; }
 }
 
 /* NAV */
@@ -41,23 +54,20 @@ body {
     padding: 25px 8%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background: rgba(0,0,0,0.85);
     backdrop-filter: blur(10px);
-    z-index: 999;
+    z-index: 1000;
 }
 
 .logo {
     font-weight: 800;
     letter-spacing: 2px;
-    font-size: 1.1rem;
 }
 
 .nav a {
-    color: var(--text);
-    text-decoration: none;
     margin-left: 30px;
-    font-size: 0.9rem;
+    text-decoration: none;
+    color: white;
     transition: 0.3s ease;
 }
 
@@ -68,7 +78,7 @@ body {
 /* HERO */
 
 section {
-    padding: 130px 8%;
+    padding: 140px 8%;
 }
 
 .hero {
@@ -79,23 +89,26 @@ section {
 
 .hero h1 {
     font-size: 4rem;
-    font-weight: 800;
     line-height: 1.1;
     max-width: 900px;
 }
 
+.hero span {
+    color: var(--accent);
+}
+
 .hero p {
     margin: 30px 0;
-    font-size: 1.3rem;
+    max-width: 650px;
+    font-size: 1.2rem;
     color: var(--muted);
-    max-width: 700px;
 }
 
 button {
     padding: 16px 40px;
     background: var(--accent);
-    color: black;
     border: none;
+    color: black;
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
@@ -103,15 +116,28 @@ button {
 }
 
 button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(16,185,129,0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(16,185,129,0.7);
+}
+
+/* METRICS */
+
+.metrics {
+    display: flex;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.metric h3 {
+    font-size: 2rem;
+    color: var(--accent);
 }
 
 /* FEATURES */
 
 h2 {
-    font-size: 2.8rem;
-    margin-bottom: 50px;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
 }
 
 .grid {
@@ -125,147 +151,118 @@ h2 {
     padding: 50px 40px;
     border-radius: 16px;
     transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
+    transform-style: preserve-3d;
     border: 1px solid rgba(255,255,255,0.05);
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, transparent, rgba(16,185,129,0.08));
-    opacity: 0;
-    transition: 0.4s ease;
-}
-
-.card:hover::after {
-    opacity: 1;
-}
-
 .card:hover {
-    transform: translateY(-15px) scale(1.03);
+    transform: rotateY(6deg) rotateX(6deg) translateY(-15px);
     border: 1px solid rgba(16,185,129,0.4);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 }
 
 .card h3 {
     margin-bottom: 20px;
-    font-size: 1.3rem;
 }
 
 .card p {
     color: var(--muted);
-    line-height: 1.6;
 }
 
 /* CTA */
 
 .cta {
     text-align: center;
-    background: var(--charcoal);
 }
 
 .footer {
-    padding: 40px 8%;
+    padding: 40px;
     text-align: center;
     color: var(--muted);
-    font-size: 0.8rem;
-}
-
-/* ANIMATION */
-
-.fade {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 1s ease;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 @media(max-width:768px){
     .hero h1 { font-size: 2.5rem; }
+    .metrics { flex-direction: column; gap: 30px; }
 }
 </style>
 </head>
 
 <body>
 
+<div class="background-grid"></div>
+
 <div class="nav">
     <div class="logo">AGENTFLOW</div>
     <div>
         <a href="#features">Features</a>
-        <a href="#operators">Operators</a>
         <a href="#book">Book</a>
     </div>
 </div>
 
 <section class="hero">
-    <div class="fade">
-        <h1>AI Infrastructure For Elite Real Estate Operators</h1>
+    <div>
+        <h1>
+            AI Infrastructure For <span>Elite Real Estate Operators</span>
+        </h1>
         <p>
-            AgentFlow by Gen I Labs transforms agents into operators.
-            Automate listings. Systemize follow-up. Scale pipeline.
-            Execute at a level your competitors cannot replicate.
+            AgentFlow by Gen I Labs automates listings, systemizes follow-up, and transforms agents into scalable operators.
         </p>
         <button onclick="scrollToSection('book')">Book Strategy Call</button>
+
+        <div class="metrics">
+            <div class="metric">
+                <h3 id="counter1">0</h3>
+                <p>Automated Workflows</p>
+            </div>
+            <div class="metric">
+                <h3 id="counter2">0</h3>
+                <p>Hours Saved Monthly</p>
+            </div>
+            <div class="metric">
+                <h3 id="counter3">0</h3>
+                <p>Listings Generated</p>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="features">
-    <h2 class="fade">Core Infrastructure</h2>
+    <h2>Core Infrastructure</h2>
+
     <div class="grid">
 
-        <div class="card fade">
+        <div class="card">
             <h3>AI Listings Generator</h3>
-            <p>
-                Instantly generate MLS-ready, high-converting property descriptions optimized for buyer psychology and SEO.
-            </p>
+            <p>MLS-ready, high-converting listing descriptions generated in seconds.</p>
         </div>
 
-        <div class="card fade">
+        <div class="card">
             <h3>Intelligent Lead Qualification</h3>
-            <p>
-                Automatically filter and prioritize serious buyers and sellers so your energy stays focused on revenue.
-            </p>
+            <p>Prioritize serious buyers and sellers automatically.</p>
         </div>
 
-        <div class="card fade">
+        <div class="card">
             <h3>Automated Multi-Channel Follow-Up</h3>
-            <p>
-                AI-powered email, SMS, and task automation ensuring no deal falls through the cracks.
-            </p>
+            <p>Email, SMS, and task automation built for scale.</p>
         </div>
 
-        <div class="card fade">
+        <div class="card">
             <h3>Pipeline Visibility Dashboard</h3>
-            <p>
-                Real-time forecasting, deal tracking, and performance metrics designed for agents scaling to $1M+.
-            </p>
+            <p>Real-time forecasting and deal tracking for $1M+ agents.</p>
         </div>
 
     </div>
 </section>
 
-<section id="operators">
-    <h2 class="fade">Built For High-Performance Agents</h2>
-    <p class="fade" style="max-width:800px; color: var(--muted);">
-        This is not another CRM. AgentFlow is operating infrastructure.
-        Built for agents who think like CEOs and execute like operators.
-    </p>
-</section>
-
 <section class="cta" id="book">
-    <h2 class="fade">Book Your Strategy Call</h2>
-    <p class="fade" style="margin-bottom:30px;">Limited onboarding for serious agents.</p>
-
+    <h2>Book Your Strategy Call</h2>
+    <p style="margin-bottom:30px; color: var(--muted);">
+        Limited onboarding for serious operators.
+    </p>
     <button onclick="window.location.href='https://calendly.com/YOUR-LINK'">
         Schedule Call
     </button>
-
 </section>
 
 <div class="footer">
@@ -277,16 +274,23 @@ function scrollToSection(id){
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
-const faders = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
+/* Counter Animation */
+function animateCounter(id, target) {
+    let count = 0;
+    const increment = target / 100;
+    const interval = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+            count = target;
+            clearInterval(interval);
         }
-    });
-}, { threshold: 0.2 });
+        document.getElementById(id).innerText = Math.floor(count);
+    }, 20);
+}
 
-faders.forEach(el => observer.observe(el));
+animateCounter("counter1", 128);
+animateCounter("counter2", 47);
+animateCounter("counter3", 312);
 </script>
 
 </body>
